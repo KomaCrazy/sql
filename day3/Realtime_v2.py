@@ -1,7 +1,5 @@
 import sqlite3
 import time
-
-
 t0 = 0
 t1 = 0 
 xxx = 0
@@ -13,7 +11,7 @@ def s1():
     time.sleep(0.5)
 
 def search():
-    global count , show
+    global count , show 
     try:
         with sqlite3.connect("data1.sqlite") as con :
             
@@ -21,8 +19,13 @@ def search():
                 select * from box1;
             """
             for row in con.execute(sql_cmd):
-                print("id :",row[0],"user :",row[1])
-                
+                x = {
+                    "id":row[0],
+                    "user":row[1],
+                    "lname":row[2],
+                    "age":row[3]
+                }
+                print(x)
                 count = count + 1
             print(show)
                 
@@ -31,7 +34,6 @@ def search():
         print("Error :",format(e))
 
 while True:
-
         search()
         count = 0
         s1()

@@ -1,5 +1,10 @@
 import sqlite3
+import time
+
 count = 0
+def s1():
+  time.sleep(1)
+
 def search():
   global count 
   try:
@@ -13,5 +18,8 @@ def search():
       
   except Exception as e :
       print("Error :".format(e))
-search()
-print("Profile : ",count)
+while True:
+  search()
+  print("Profile : ",count)
+  count = 0
+  s1()
