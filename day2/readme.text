@@ -1,0 +1,5 @@
+#insert into table values('1','kaw','zaza')
+#create table name(id text primary key,
+#                  fname text,
+#                  lname text,
+#                  age  integer);

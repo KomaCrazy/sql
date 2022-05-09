@@ -1,9 +1,7 @@
 import sqlite3
-from tkinter import E
-
 def create_table():
     try:
-        with sqlite3.connect("./data1.sqlite") as con:
+        with sqlite3.connect("./db/data1.sqlite") as con:
             sql_cmd = +\
             """
             create table meda1(
