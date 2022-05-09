@@ -1,34 +1,20 @@
 import sqlite3
 import time 
 import json
-import numpy as np
+from flask import Flask 
 user = ""
-pw = ""  
+pw = ""
+row = ""  
 count = 0
 as_34 = chr(34)
 
-
+app = Flask(__name__)
+host = '0.0.0.0'
+port = 5000
 path = "data.sqlite"
 table = "box1"
 
-t0 = 0 
-t1 = 0
-xxx = 0
-
-def start():
-    global t0,t1,xxx 
-    t0 = time.time()
-    xxx = np.arange(10000000)
-    t1 = time.time()
-    t0 = time.time()
-def end():
-    global t0,t1,xxx 
-    t0 = time.time()
-    yyy = np.sin(xxx)
-    t1 = time.time()
-    print('Process : %f'%(t1-t0))
-
-
+link_0 = "/"
 
 def s1():
     global count
@@ -36,7 +22,7 @@ def s1():
     count = 0
 
 def search():#  search
-  global count
+  global count, row
   try:
     with sqlite3.connect(path) as con :
         cmd = """
@@ -47,10 +33,13 @@ def search():#  search
   except Exception as e:
         print("search Error")
 
+search()
 
-while True :
-    start()
+@app.route(link_0)
+def link0():
     search()
-    end()
-    print("________________________")
-    s1()
+    data = str(row)
+    return data
+
+if __name__ == '__main__':
+    app.run(host,port)

@@ -39,6 +39,7 @@ def insert():
         for row in con.execute(cmd):
             #print(row)
             count = count + 1
+            
   except Exception as e:
         print("search Error")
 
@@ -48,6 +49,7 @@ def inputdata(): #  input
   try :
     user = str(input("user : "))
     pw = str(input("Password : "))
+    insert()
   except Exception as e:
       print("input Error")
 
@@ -56,5 +58,7 @@ while True : #  Main
         search()
         s1()
         inputdata()
+        print("Apply successfully")
+        print("_____________________")
     except Exception as e :
         print("Main Process Error")
