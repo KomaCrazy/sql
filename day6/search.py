@@ -1,10 +1,13 @@
 from flask import Flask, jsonify
 import sqlite3
 from requests import request
+from flask_cors import CORS
+
 # config setting
 host = '0.0.0.0'
 port = 5000
 app = Flask(__name__)
+CORS(app)
 
 # path setting
 path = "data.sqlite"
