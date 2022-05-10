@@ -7,7 +7,9 @@ def search():
       with sqlite3.connect(path) as con :
           sql_cmd = """ 
             select * from """ + table + """ ; """
-          con.execute(sql_cmd)
+          for row in con.execute(sql_cmd) :
+            print(row)
+          
     except Exception as e :
         print("Find Error")
 search()

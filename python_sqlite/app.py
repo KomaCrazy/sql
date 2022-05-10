@@ -1,8 +1,8 @@
 
 from flask import Flask, render_template, request, jsonify,send_file,send_from_directory
-from flask_cors import CORS, cross_origin
+#from flask_cors import CORS, cross_origin
 from PIL import Image
-import pytesseract
+#import pytesseract
 from io import BytesIO
 import time
 import os,sys, stat
@@ -15,7 +15,7 @@ import json
 import sqlite3
 from sqlite3 import Error
 app = Flask(__name__)
-CORS(app)
+#CORS(app)
    
 
 

@@ -1,4 +1,4 @@
-from flask import Flask, render_template 
+from flask import Flask
 import sqlite3 
 import json
 import time 
@@ -10,7 +10,7 @@ table = "box1"
 
 app = Flask(__name__)
 link_0 = '/'
-
+link_1 = '/1'
 data = ""
 def s1():
     time.sleep(1)
@@ -21,7 +21,7 @@ def search():
     try:
       with sqlite3.connect(path) as con :
           sql_cmd = """
-           select * from """ + table + """;"""
+           select * from """ + table + """ ; """
           for row in con.execute(sql_cmd):
               #print(row)
               x = {
@@ -30,13 +30,21 @@ def search():
                   "password":row[2]
               }
               x = json.dumps(x)
-              #x = str(x)
-              data = data + x
+              data = data + x +","
     except Exception as e :
         print("search Error")
 
 @app.route(link_0)
 def page():
+  try:
+    return '0'
+    
+  except Exception as e:
+    print("Page : "+ link_0 + "Error")
+
+
+@app.route(link_1)
+def page1():
   try:
    while True :
     search()
@@ -44,6 +52,6 @@ def page():
     return data
     
   except Exception as e:
-    print("Page : "+ link_0 + "Error")
+    print("Page : "+ str(link_1) + "Error")
 
 app.run(host,port)
