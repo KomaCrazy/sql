@@ -48,10 +48,7 @@ def search():
                 data["pwd"] = row[2]
                 rr.append(data)
             # print(rr)
-            print("_________________________")
-            print("route : " + link_0)
-            print("cmd : " + sql_cmd)
-            print("_________________________")
+
         return jsonify(rr)
     except Exception as e:
         print("Error : "+link_1)
