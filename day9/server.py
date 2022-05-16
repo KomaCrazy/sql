@@ -17,7 +17,7 @@ def link1():
     try:
         d = []
         with sqlite3.connect("data.sqlite") as conn :
-            for row in conn.execute(sql_select)
+          for row in conn.execute(sql_select) :
             a = {}
             a["id"] = row[0]
             a["user"] = row[1]
@@ -26,6 +26,6 @@ def link1():
             d.append(a)
         return jsonify(d)
     except Exception as e:
-        
+        print("Error : "+link1)
 if __name__ == '__main__' :
     app.run(host,port)
