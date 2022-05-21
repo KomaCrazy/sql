@@ -10,6 +10,7 @@ conn = ""
 id = 0
 user = ""
 password = ""
+
 # Command
 sql_create = "create table "+table + \
     "(id primary key, user text,password text , age text);"
@@ -44,6 +45,7 @@ def find_table():
 def insert_table():
   global user, id , pwd 
   try:
+    find_table()
     user = str(input("user : "))
     pwd = str(input("Password : "))
     age = str(input("age : "))
