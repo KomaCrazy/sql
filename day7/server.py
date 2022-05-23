@@ -2,7 +2,7 @@ import sqlite3
 import json
 from flask import Flask , jsonify
 from flask_cors import CORS
-from requests import patch
+
 
 app = Flask(__name__)
 CORS(app)
